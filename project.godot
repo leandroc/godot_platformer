@@ -1,0 +1,197 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "CommonPlatform",
+"language": "GDScript",
+"path": "res://Scenes/Platform/CommonPlatform.gd"
+}, {
+"base": "Node2D",
+"class": "GameOver",
+"language": "GDScript",
+"path": "res://Scenes/GameOver/GameOver.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Scenes/Level/Level.gd"
+}, {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://Scenes/Main.gd"
+}, {
+"base": "Node2D",
+"class": "Menu",
+"language": "GDScript",
+"path": "res://Scenes/Menu/Menu.gd"
+}, {
+"base": "Platform",
+"class": "MovingPlatform",
+"language": "GDScript",
+"path": "res://Scenes/MovingPlatform/MovingPlatform.gd"
+}, {
+"base": "Node2D",
+"class": "Platform",
+"language": "GDScript",
+"path": "res://Scenes/Platform/Platform.gd"
+}, {
+"base": "Node2D",
+"class": "Play",
+"language": "GDScript",
+"path": "res://Scenes/Play/Play.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Scenes/Player/Player.gd"
+}, {
+"base": "Platform",
+"class": "StaticPlatform",
+"language": "GDScript",
+"path": "res://Scenes/StaticPlatform/StaticPlatform.gd"
+} ]
+_global_script_class_icons={
+"CommonPlatform": "",
+"GameOver": "",
+"Level": "",
+"Main": "",
+"Menu": "",
+"MovingPlatform": "",
+"Platform": "",
+"Play": "",
+"Player": "",
+"StaticPlatform": ""
+}
+
+[application]
+
+config/name="Platformer"
+run/main_scene="res://Scenes/Main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+GlobalVariables="*res://GlobalVariables.gd"
+
+[debug]
+
+gdscript/warnings/unused_class_variable=true
+gdscript/warnings/unsafe_cast=true
+
+[display]
+
+window/size/width=180
+window/size/height=320
+window/size/test_width=720
+window/size/test_height=1280
+window/dpi/allow_hidpi=true
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[input]
+
+ui_accept={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_select={
+"deadzone": 0.51,
+"events": [  ]
+}
+ui_cancel={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_next={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_focus_prev={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_page_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_page_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_home={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_end={
+"deadzone": 0.5,
+"events": [  ]
+}
+ui_jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_render/layer_1="player"
+2d_physics/layer_1="player"
+3d_render/layer_1="3d_render_1"
+3d_physics/layer_1="3d_physics_1"
+2d_render/layer_2="world"
+2d_physics/layer_2="world"
+2d_render/layer_3="coins"
+2d_physics/layer_3="coins"
+2d_render/layer_4="enemy"
+2d_physics/layer_4="enemy"
+
+[locale]
+
+test="pt_BR"
+locale_filter=[ 0, [ "en_US", "pt_BR" ] ]
+
+[node]
+
+name_num_separator=2
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"

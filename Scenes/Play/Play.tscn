@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Level/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/StaticPlatform/StaticPlatform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MovingPlatform/MovingPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Play/Play.gd" type="Script" id=4]
+
+[node name="Play" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Level" parent="." instance=ExtResource( 1 )]
+level_height = 720
+
+[node name="StaticPlatform_0" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 240 )
+position_x = "Right"
+
+[node name="StaticPlatform_1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 176 )
+
+[node name="StaticPlatform_2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 112 )
+position_x = "Right"
+
+[node name="MovingPlatform_3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 48 )
+
+[node name="StaticPlatform_4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -16 )
+position_x = "Right"
+[connection signal="player_is_dead" from="Level" to="." method="_on_Level_player_is_dead"]

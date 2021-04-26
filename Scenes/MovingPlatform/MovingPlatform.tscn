@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/MovingPlatform/MovingPlatform.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/MovingPlatform/MovingPlatform.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Platform/CommonPlatform.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 8 )
+
+[node name="MovingPlatform" type="KinematicBody2D" groups=[
+"Platform",
+]]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 8 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+light_mask = -2147483647
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 786442, 1, 0, 786443, 2, 0, 786443, 3, 0, 786444 )
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+[connection signal="body_entered" from="Platform" to="." method="_on_Platform_body_entered"]
+[connection signal="thorn_visibility" from="Platform" to="." method="_on_Platform_thorn_visibility"]

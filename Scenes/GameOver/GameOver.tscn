@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/GameOver/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Pixel Intv.tres" type="DynamicFont" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/Fonts/Pixel Intv.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = SubResource( 1 )
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 180.0
+margin_bottom = 320.0
+color = Color( 0.0745098, 0.0117647, 0.0117647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="MarginContainer" parent="CanvasLayer"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -28.5
+margin_bottom = 28.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Container"]
+margin_right = 180.0
+margin_bottom = 57.0
+
+[node name="ScoreBox" type="MarginContainer" parent="CanvasLayer/Container/VBoxContainer"]
+margin_right = 180.0
+margin_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Container/VBoxContainer/ScoreBox"]
+margin_right = 180.0
+margin_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "000"
+align = 1
+valign = 1
+
+[node name="ButtonBox" type="MarginContainer" parent="CanvasLayer/Container/VBoxContainer"]
+margin_top = 33.0
+margin_right = 180.0
+margin_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Container/VBoxContainer/ButtonBox"]
+margin_right = 180.0
+margin_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = ExtResource( 2 )
+text = "press bar to play again"
+flat = true
+[connection signal="pressed" from="CanvasLayer/Container/VBoxContainer/ButtonBox/Button" to="." method="_on_Button_pressed"]

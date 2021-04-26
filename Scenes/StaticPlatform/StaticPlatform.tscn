@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/StaticPlatform/StaticPlatform.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/StaticPlatform/StaticPlatform.tres" type="TileSet" id=2]
+[ext_resource path="res://Scenes/Platform/CommonPlatform.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 8 )
+
+[node name="StaticPlatform" type="StaticBody2D" groups=[
+"Platform",
+]]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 32, 8 )
+shape = SubResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 1048586, 1, 0, 1048587, 2, 0, 1048587, 3, 0, 1048588 )
+
+[node name="CommonPlatform" parent="." instance=ExtResource( 3 )]
+[connection signal="body_entered" from="CommonPlatform" to="." method="_on_Platform_body_entered"]
+[connection signal="thorn_visibility" from="CommonPlatform" to="." method="_on_Platform_thorn_visibility"]
